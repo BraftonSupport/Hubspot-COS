@@ -36,9 +36,11 @@ function upload_image($img){
         'folder_paths'  => image_folder
         );
     $myvar = $json_body;
+    /*
     echo '<pre>';
     var_dump($myvar);
     echo '</pre>';
+    */
     $ch = curl_init();
     $options = array(
         CURLOPT_URL => $url,
@@ -57,9 +59,11 @@ function upload_image($img){
     unlink($imgUrl);
     $newData = json_decode($result);
     $nm = $newData;
+    /*
     echo '<pre>';
     var_dump($nm);
     echo '</pre>';
+    */
     return $newData->objects[0]->friendly_url;
 }
 
