@@ -10,8 +10,9 @@ class brafton_post{
     private $post_summary;
     private $topics;
     private $date;
+    private $author;
 
-    public function __construct($title,$meta_desc,$slug,$body,$summary,$topics = false,$video = false, $date = false,$ctas=false){
+    public function __construct($title,$meta_desc,$slug,$body,$summary,$author,$topics = false,$video = false, $date = false,$ctas=false){
         echo 'hello';
         //creates blog post in draft format, updates it with desired data
         //returns article id, so it can be published if desired
@@ -37,7 +38,7 @@ class brafton_post{
         $this->article_id = $article_json->id;
 
         $updated_article = array(
-            'blog_author_id'=>author_id,
+            'blog_author_id'=>$this->author,
             'meta_description'=>$this->meta_description,
             'slug'=>$this->slug,
             'post_body'=>$this->body,

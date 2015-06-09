@@ -92,8 +92,8 @@ class BraftonImporter {
                     $strPost= $strPost . $post_content;
                 }
 
-            
-            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_excerpt,$article_topics,false,$post_date);
+            $author = author_id;
+            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_excerpt,$author,$article_topics,false,$post_date);
 
             $id = $post->article_id;
 
