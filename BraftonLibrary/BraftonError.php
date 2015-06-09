@@ -33,8 +33,8 @@ class BraftonErrorReport {
         $this->domain = client;
         $this->api = brafton_apiKey;
         $this->brand = domain;
-        $this->e_key = 'h8dbg4k1uf75qba7aqliwwmu';
-        $this->post_url = 'http://test.updater.cl-subdomains.com/errorlog/hubspotcos/error/'.$this->e_key;
+        $this->e_key = 'hmng2s19skfai1mba9lp5cyb';
+        $this->post_url = 'http://updater.brafton.com/errorlog/hubspotcos/error/'.$this->e_key;
         $this->level = 1;
         $this->section = 'error initialize';
         register_shutdown_function(array($this,  'check_for_fatal'));
