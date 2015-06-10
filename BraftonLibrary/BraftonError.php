@@ -101,5 +101,4 @@ class BraftonErrorReport {
     }
 
 }
-$error = new BraftonErrorReport();
 ?>

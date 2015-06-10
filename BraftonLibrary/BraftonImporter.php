@@ -91,8 +91,14 @@ class BraftonImporter {
                 } else {
                     $strPost= $strPost . $post_content;
                 }
-
-            $author = author_id;
+            if(defined('dynamic_author') && (dynamic_author)){
+                $author = dynamicAuthor($a->getByLine());
+            }
+            else{
+                $author = author_id;
+            }
+            
+            echo '<br/>This is the author : '.$author.'<br/>';
             $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_excerpt,$author,$article_topics,false,$post_date);
 
             $id = $post->article_id;

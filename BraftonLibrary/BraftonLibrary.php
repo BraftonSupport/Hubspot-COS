@@ -5,7 +5,14 @@
  *
  *********************************************************************************************
  */
+function dynamicAuthor($byLine_author){
+    $byLine_author = 'Robert Gaudreau';
+    $byLine_author = urlencode($byLine_author);
+    $url = "https://api.hubapi.com/blogs/v3/blog-authors/search/?fullName=$byLine_author&hapikey=".hub_apiKey;
+    $authInfo = execute_get_request($url);
+    return $authInfo->objects[0]->id;
 
+}
 function upload_image($img){
 
     echo 'image url: '.$img;
