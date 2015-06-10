@@ -25,6 +25,7 @@ class brafton_post{
         $this->summary = $summary;
         $this->topics = $topics;
         $this->date = strtotime($date)*1000;
+        $this->author = $author;
 
 
 
