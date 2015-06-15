@@ -7,6 +7,7 @@ class BraftonImporter {
  *****************************************************************************************
  */
     function import_articles($titles,$existing_topics){
+        echo ' Articles: <br/>';
         $fh = new ApiHandler(brafton_apiKey, domain );
         $articles = $fh->getNewsHTML();
         $articles_imported = 0;
@@ -20,7 +21,7 @@ class BraftonImporter {
             $createCat = array();
             $brafton_id = $a->getId();      
             $post_title = $a->getHeadline();
-
+            echo "Checking: ".$post_title."<br/>";
             // check against existing posts here.  Use title.
             if (compare_post_titles($post_title,$titles)) continue;
 
@@ -118,7 +119,7 @@ class BraftonImporter {
  **********************************************************************************************
  */
     function import_videos($titles,$existing_topics){
-
+        echo " Videos: <br/>";
         $params = array('max'=>99);
         
         $baseURL = 'http://livevideo.'.str_replace('http://', '',domain).'/v2/';
@@ -164,7 +165,7 @@ class BraftonImporter {
             $brafton_id = $a->id;
 
             // check against existing posts here.  Use title.
-
+            echo "Checking: ".$post_title."<br/>";
             if (compare_post_titles($post_title,$titles)) continue;
 
             echo "POSTING: ".$post_title."<br>";

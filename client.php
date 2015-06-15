@@ -72,7 +72,9 @@ class HubspotImporter extends BraftonImporter{
 		//import_videos($titles,$existing_topics);
         $import = new HubspotImporter();
         $error = new BraftonErrorReport();
-        $import->import_articles($titles,$existing_topics);
+        if(brafton_apiKey != '' || brafton_apiKey != null){
+            $import->import_articles($titles,$existing_topics);
+        }
         if(import_video){
             $import->import_videos($titles,$existing_topics);
         }
