@@ -70,8 +70,10 @@ class BraftonImporter {
 			}
                 
                 $photos = $a->getPhotos();  
-                $image = $photos[0]->getLarge();
-                $post_image = $image->getUrl();
+                if(!empty($photos)){
+                    $image = $photos[0]->getLarge();
+                    $post_image = $image->getUrl();
+                }
                 
                 if(!empty($post_image)){
                     $image_id = $photos[0]->getId();                
