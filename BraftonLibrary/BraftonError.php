@@ -62,7 +62,7 @@ class BraftonErrorReport {
     //workhorse of the error reporting.  This function does the heavy lifting of logging the error and sending an error report
     public function log_exception( Exception $e ){
         if(error_reporting() == 0){
-            return true;
+            return;
         }
         if ( ($this->level == 1) ){
     
