@@ -162,7 +162,7 @@ function list_authors(){
 }
 
 function list_topics(){
-    $url = 'https://api.hubapi.com/blogs/v3/topics?hapikey=' . hub_apiKey . '&casing=snake_case';
+    $url = 'https://api.hubapi.com/blogs/v3/topics?hapikey=' . hub_apiKey . '&casing=snake_case' . '&limit=9999';
 
     $topicsInfo = execute_get_request($url);
 
