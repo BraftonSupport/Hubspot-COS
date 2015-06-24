@@ -112,28 +112,33 @@ function check_blog_id(){
 }
 
 function list_post_titles($params){   
-    //list post titles
-    //
-    //array of parameters should be like this:
-    // $params = array(
-    //     'hapikey'=>hub_apiKey,
-    //     'content_group_id'=>blog_id,
-    //);
-    //hapikey needs to be first
+    /*
+     * get a list of up to 50 most recent articles from the Drafts, Published, and Scheduled Sections.
+     * List will be up to 150 articles by the end
+     * 
+     */
 
     $url = 'https://api.hubapi.com/content/api/v2/blog-posts';
-
-    $url_params = params_to_string($params);
-
-    $postsInfo = execute_get_request($url . $url_params);
-
     $titles = array();
-
+    
+    $params['state'] = 'DRAFT';
+    $url_params = params_to_string($params);
+    $postsInfo = execute_get_request($url . $url_params);
     foreach($postsInfo->objects as $post){
         $titles[] = $post->name;
-        //echo $post->created;
     }
-
+    $params['state'] = 'PUBLISHED';
+    $url_parms2 = params_to_string($params);
+    $postsInfo2 = execute_get_request($url . $url_parms2);
+    foreach($postsInfo2->objects as $post){
+        $titles[] = $post->name;
+    }
+    $params['state'] = 'SCHEDULED';
+    $url_parms3 = params_to_string($params);
+    $postsInfo3 = execute_get_request($url . $url_parms3);
+    foreach($postsInfo3->objects as $post){
+        $titles[] = $post->name;
+    }
     return $titles;
 }
 

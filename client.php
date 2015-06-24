@@ -60,7 +60,7 @@ class HubspotImporter extends BraftonImporter{
             'hapikey'=>hub_apiKey,
             'content_group_id'=>blog_id,
             'created__gte'=>$post_time,
-            'limit'=>30,
+            'limit'=>50,
             'order_by'=>'-created'
         );
 
