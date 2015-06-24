@@ -13,10 +13,12 @@ class BraftonImporter {
         $articles_imported = 0;
 
         foreach ($articles as $a) {
-            $articles_imported++;
-            if($articles_imported>3) break;
+            
+            if($articles_imported>5) break;
             //max of five articles importer
-
+            
+            $articles_imported++;
+            
             $strPost = '';
             $createCat = array();
             $brafton_id = $a->getId();      
@@ -145,10 +147,12 @@ class BraftonImporter {
         $articles = $articleClient->ListForFeed($feedList->items[0]->id,'live',0,100);
 
         $articles_imported = 0;
-
+        
+        //fix for video feed issue present on june 24 2015.  video feeds are supposed to be sorted by modified date in desc order but are showing up in asc order instead. //remove once fixed. note dk
+        $articles->items = array_reverse($articles->items);
+        
        foreach ($articles->items as $a) {
-            $articles_imported++;
-            if($articles_imported>2) break;
+            
             //max of five articles imported
 
             $thisArticle = $client->Articles()->Get($a->id);
@@ -169,7 +173,10 @@ class BraftonImporter {
             // check against existing posts here.  Use title.
             echo "Checking: ".$post_title."<br/>";
             if (compare_post_titles($post_title,$titles)) continue;
-
+           
+            $articles_imported++;
+            if($articles_imported>5) break;
+           
             echo "POSTING: ".$post_title."<br>";
             
             $words = str_word_count($post_title,1);
