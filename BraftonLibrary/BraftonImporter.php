@@ -55,7 +55,7 @@ class BraftonImporter {
                 $topic_exists = false;
 				$new_cat = false;
                 foreach ($existing_topics as $topic) { 
-                    if($brafton_cat == $topic){
+                    if(strtolower($brafton_cat) == strtolower($topic)){
 			            $article_topics[] = array_search( $topic, $existing_topics);
                         $topic_exists = true;
 			             break;
@@ -210,7 +210,7 @@ class BraftonImporter {
 				$new_cat = false;
                 foreach ($existing_topics as $topic) { 
 				echo "topic second loop: $topic <br/>";
-                    if($brafton_cat == $topic){
+                    if(strtolower($brafton_cat) == strtolower($topic)){
 			echo "topic exists <br/>";
 			echo "brafton cat: ". $brafton_cat . '<br/>';  
                         echo "topic: $topic <br/>";
