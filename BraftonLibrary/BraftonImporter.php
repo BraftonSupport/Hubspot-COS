@@ -358,8 +358,9 @@ EOC;
 
             $id = $post->article_id;
 
-            $post->publish_post($id);  
-            // broken...  what is time format of date on brafton feed?  will almost certainly need to convert.
+            if(post_status == 'published'){
+                $post->publish_post($id);  
+            }
 
         }
         
