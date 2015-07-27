@@ -59,7 +59,8 @@ class brafton_post{
 
         if($video){
 
-        $updated_article['head_html'] = '<link rel="stylesheet" href="http://p.ninjacdn.co.uk/atlantisjs/v0.11.7/atlantisjs.css" type="text/css" /><script src="http://p.ninjacdn.co.uk/atlantisjs/v0.11.7/atlantis.js" type="text/javascript"></script>';
+        //$updated_article['head_html'] = '<link rel="stylesheet" href="http://p.ninjacdn.co.uk/atlantisjs/v0.11.7/atlantisjs.css" type="text/css" /><script src="http://p.ninjacdn.co.uk/atlantisjs/v0.11.7/atlantis.js" type="text/javascript"></script>';
+        $updated_article['head_html'] = '<link rel="stylesheet" href="http://atlantisjs.brafton.com/v1/atlantisjsv1.3.css" type="text/css" /><script src="http://atlantisjs.brafton.com/v1/atlantis.min.v1.3.js" type="text/javascript"></script>';
         $updated_article['footer_html'] = $ctas;
         }
         
