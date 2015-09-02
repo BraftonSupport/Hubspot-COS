@@ -35,9 +35,14 @@ class brafton_post{
         );
 
         $article_json = $this->import_post($article);
-
+        $hubCheck = $article_json;
+        // Debug the hubspot object sent back from creating article
+        /*echo '<pre>';
+        var_dump($hubCheck);
+        echo '</pre>';
+        */
         $this->article_id = $article_json->id;
-
+        
         $updated_article = array(
             'blog_author_id'=>$this->author,
             'meta_description'=>$this->meta_description,
@@ -56,15 +61,18 @@ class brafton_post{
             $topics_string .= "]";
             $updated_article['topic_ids'] = $topics;
         }
-
+        $hubUpdate = $updated_article;
+        //Debug the update array for sending to hubspot with complete article info
+        /*echo '<pre>';
+        var_dump($hubUpdate);
+        echo '</pre>';
+        */
         if($video){
-
-        //$updated_article['head_html'] = '<link rel="stylesheet" href="http://p.ninjacdn.co.uk/atlantisjs/v0.11.7/atlantisjs.css" type="text/css" /><script src="http://p.ninjacdn.co.uk/atlantisjs/v0.11.7/atlantis.js" type="text/javascript"></script>';
         $updated_article['head_html'] = '<link rel="stylesheet" href="http://atlantisjs.brafton.com/v1/atlantisjsv1.3.css" type="text/css" /><script src="http://atlantisjs.brafton.com/v1/atlantis.min.v1.3.js" type="text/javascript"></script>';
         $updated_article['footer_html'] = $ctas;
         }
-        
-        $this->update_post($this->article_id,$updated_article);
+        //Dump out the return from Hubspot 
+        var_dump($this->update_post($this->article_id,$updated_article));
 
 
 
