@@ -19,7 +19,15 @@ function upload_image($img){
     $url = "https://api.hubapi.com/filemanager/api/v2/files?hapikey=".hub_apiKey;
 
     $filename = basename($img);
-    $filename = substr($filename, 0, 150);
+    $ext = pathinfo($filename, PATHINFO_EXTENSION); //Get image extention
+    /**
+     * Hubspot only accepts filenames less than 150 characters long so we need to rename some filenames to comply
+     */
+    $filename = explode('.',$filename);
+    $filename = substr($filename[0], 0, 146);
+    $filename .= '.'.$ext;
+    echo $filename;
+    
     $ic = curl_init($img);
     $io = fopen($filename, 'wb');
     curl_setopt($ic, CURLOPT_FILE, $io);
@@ -43,11 +51,11 @@ function upload_image($img){
         'folder_paths'  => image_folder
         );
     $myvar = $json_body;
-    /*
+    
     echo '<pre>';
     var_dump($myvar);
     echo '</pre>';
-    */
+    
     $ch = curl_init();
     $options = array(
         CURLOPT_URL => $url,
@@ -63,14 +71,14 @@ function upload_image($img){
     $result = curl_exec($ch);
     $header_info = curl_getInfo($ch, CURLINFO_HEADER_OUT);
     curl_close($ch);
-    unlink($imgUrl);
+    //unlink($imgUrl);
     $newData = json_decode($result);
     $nm = $newData;
-    /*
-    echo '<pre>';
+    
+    echo '<pre>From Hubspot';
     var_dump($nm);
     echo '</pre>';
-    */
+    
     return $newData->objects[0]->friendly_url;
 }
 
