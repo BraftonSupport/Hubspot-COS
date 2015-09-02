@@ -71,7 +71,7 @@ function upload_image($img){
     $result = curl_exec($ch);
     $header_info = curl_getInfo($ch, CURLINFO_HEADER_OUT);
     curl_close($ch);
-    //unlink($imgUrl);
+    unlink($imgUrl);
     $newData = json_decode($result);
     $nm = $newData;
     
