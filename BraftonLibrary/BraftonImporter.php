@@ -92,7 +92,7 @@ class BraftonImporter {
                     $excerptImage = '<img src="' . $post_image . '" style = "width:300px;height:auto;vertical-align:middle; margin-bottom: 3px;float:right"  alt="Google Logo" />'; 
                     $div = $divcode . $imgcode . '<br/>' . $post_image_caption . '</div>';
                     $strPost = $strPost.$div.$post_content;
-                    $post_excerpt =  $excerptImage . $post_excerpt; 
+                    $post_summary =  $excerptImage . $post_excerpt; 
                 } else {
                     $strPost= $strPost . $post_content;
                 }
@@ -104,7 +104,7 @@ class BraftonImporter {
             }
             
             echo '<br/>This is the author : '.$author.'<br/>';
-            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_excerpt,$author,$article_topics,false,$post_date);
+            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_summary,$author,$article_topics,false,$post_date);
 
             $id = $post->article_id;
 
