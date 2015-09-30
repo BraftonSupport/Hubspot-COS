@@ -223,8 +223,9 @@ function create_topic($topic,$existing_topics){
         'slug' => strtolower(str_replace(' ','-',htmlspecialchars($topic))),
     );
     if(DEBUG){
+        $check_params = $params;
         echo '<pre>';
-        var_dump($params);
+        var_dump($check_params);
         echo '</pre>';
     }
     $json = json_encode($params);
