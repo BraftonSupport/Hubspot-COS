@@ -5,6 +5,8 @@
  *
  *********************************************************************************************
  */
+$debug = isset($_GET['debug']) ? true : false;
+define('DEBUG', $debug);
 function dynamicAuthor($byLine_author){
     $byLine_author = 'Robert Gaudreau';
     $byLine_author = urlencode($byLine_author);
@@ -189,6 +191,11 @@ function list_topics(){
         $topic_id_str = strval($topic->id);
         $topic_array[$topic_id_str]=$topic->name;
     }
+    if(DEBUG){
+        $show_topics = $topic_array;
+        echo '<pre>';
+        var_dump($show_topics);
+        echo '<pre>';
     return $topic_array;
 }
 
@@ -197,6 +204,9 @@ function compare_topics($needle, $haystack){
     $match = false;
 
     foreach ($haystack as $hay){
+        if(DEBUG){
+            echo "Compare $hay with $needle <br/>";
+        }
         if($hay == $needle) $match = key($haystack);
     }
     return $match;
