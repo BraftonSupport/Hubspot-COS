@@ -189,7 +189,7 @@ function list_topics(){
         //echo $topic->name . ':  ' . $topic->id . '<br/>';
         //Convert ID to string to avoid max int issue with large topic IDs
         $topic_id_str = strval($topic->id);
-        $topic_array[$topic_id_str]=$topic->name;
+        $topic_array[$topic_id_str]=strtolower($topic->name);
     }
     if(DEBUG){
         $show_topics = $topic_array;
@@ -226,7 +226,12 @@ function create_topic($topic,$existing_topics){
     $json = json_encode($params);
 
     $response = execute_post_request($url, $json);
-
+    if(DEBUG){
+        $print_response = $response;
+        echo '<pre>';
+        var_dump($print_response);
+        echo '</pre>';
+    }
     $existing_topics[$response->id] = $topic;
 
     $return = array(
