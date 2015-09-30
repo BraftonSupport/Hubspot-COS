@@ -196,6 +196,7 @@ function list_topics(){
         echo '<pre>';
         var_dump($show_topics);
         echo '<pre>';
+    }
     return $topic_array;
 }
 
