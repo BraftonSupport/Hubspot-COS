@@ -222,7 +222,11 @@ function create_topic($topic,$existing_topics){
         'name' => $topic,
         'slug' => htmlspecialchars($topic),
     );
-
+    if(DEBUG){
+        echo '<pre>';
+        var_dump($params);
+        echo '</pre>';
+    }
     $json = json_encode($params);
 
     $response = execute_post_request($url, $json);
