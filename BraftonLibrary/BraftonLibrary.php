@@ -220,7 +220,7 @@ function create_topic($topic,$existing_topics){
 
     $params = array(
         'name' => $topic,
-        'slug' => str_replace(' ','-',htmlspecialchars($topic)),
+        'slug' => strtolower(str_replace(' ','-',htmlspecialchars($topic))),
     );
     if(DEBUG){
         echo '<pre>';
