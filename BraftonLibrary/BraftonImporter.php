@@ -354,7 +354,7 @@ EOC;
 
 
             $author = author_id;
-            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_excerpt,$author,$article_topics,true, $post_date,$ctascript);
+            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_excerpt,$author,$article_topics,true, $post_date,$ctascript, $post_image);
 
             $id = $post->article_id;
 
