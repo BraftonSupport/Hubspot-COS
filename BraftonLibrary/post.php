@@ -12,7 +12,7 @@ class brafton_post{
     private $date;
     private $author;
 
-    public function __construct($title,$meta_desc,$slug,$body,$summary,$author,$topics = false,$video = false, $date = false,$ctas=false){
+    public function __construct($title,$meta_desc,$slug,$body,$summary,$author,$topics = false,$video = false, $date = false,$ctas=false, $featured=false){
         echo 'hello';
         //creates blog post in draft format, updates it with desired data
         //returns article id, so it can be published if desired
