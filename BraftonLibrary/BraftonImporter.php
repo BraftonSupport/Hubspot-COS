@@ -13,12 +13,7 @@ class BraftonImporter {
         $articles_imported = 0;
 
         foreach ($articles as $a) {
-            
-            if($articles_imported>5) break;
-            //max of five articles importer
-            
-            $articles_imported++;
-            
+                        
             $strPost = '';
             $createCat = array();
             $brafton_id = $a->getId();      
@@ -26,7 +21,7 @@ class BraftonImporter {
             echo "Checking: ".$post_title."<br/>";
             // check against existing posts here.  Use title.
             if (compare_post_titles($post_title,$titles)) continue;
-
+            if($articles_imported>5) break;
             echo "POSTING: ".$post_title."<br>";
 
             $post_date = $a->getPublishDate();
@@ -112,7 +107,7 @@ class BraftonImporter {
                 $post->publish_post($id);  
             }
             // broken...  what is time format of date on brafton feed?  will almost certainly need to convert.
-
+            $articles_imported++;
         }
     }
     
