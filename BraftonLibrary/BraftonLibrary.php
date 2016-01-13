@@ -154,6 +154,9 @@ function list_post_titles($params){
 
 function compare_post_titles($needle,$haystack){
     //accepts string of title and array of titles (strings)
+    if(DEBUG){
+        echo '<pre>';var_dump($haystack);echo '</pre>';
+    }
     $match = false;
     //echo "needle " . $needle . "<br/>";
     foreach($haystack as $hay){
