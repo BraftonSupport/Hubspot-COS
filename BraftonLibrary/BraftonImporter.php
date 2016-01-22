@@ -11,9 +11,10 @@ class BraftonImporter {
         $limit = isset($_GET['limit']) ? $_GET['limit'] : 5;
         if(isset($_GET['archive']) && file_exists('archive-'.client.'.xml')){
             echo 'From Archive File<br/>';
-            $dir = 'http://tech.brafton.com/hubspot/cos/'.client.'/';
+            //$dir = 'http://tech.brafton.com/hubspot/cos/'.client.'/';
+            $dir = '/var/www/html/tech/hubspot/cos/'.client.'/';
             echo $dir;
-            $articles = NewsItem::getNewsHTML($dir.'archive-'.client.'.xml', "html");
+            $articles = NewsItem::getNewsList($dir.'archive-'.client.'.xml', "html");
             $limit = count($articles);
             echo ' Import ' . $limit . ' articles<br/>';
         }else{
