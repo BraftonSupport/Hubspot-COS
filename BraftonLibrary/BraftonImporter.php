@@ -10,9 +10,10 @@ class BraftonImporter {
         echo ' Articles: <br/>';
         $limit = isset($_GET['limit']) ? $_GET['limit'] : 5;
         if(isset($_GET['archive']) && file_exists('archive-'.client.'.xml')){
+            echo 'From Archive File';
             $articles = NewsItem::getNewsHTML('archive-'.client.'.xml', "html");
             $limit = count($articles);
-            echo 'From Archive File Import ' . $limit . ' articles<br/>';
+            echo ' Import ' . $limit . ' articles<br/>';
         }else{
             $fh = new ApiHandler(brafton_apiKey, domain );
             $articles = $fh->getNewsHTML();
