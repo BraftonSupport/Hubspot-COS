@@ -11,7 +11,7 @@ class BraftonImporter {
         $limit = isset($_GET['limit']) ? $_GET['limit'] : 5;
         if(isset($_GET['archive']) && file_exists('archive-'.client.'.xml')){
             echo 'From Archive File<br/>';
-            $dir = 'http://tech.brafton.com/Hubspot/cos/'.client.'/';
+            $dir = 'http://tech.brafton.com/hubspot/cos/'.client.'/';
             echo $dir;
             $articles = NewsItem::getNewsHTML($dir.'archive-'.client.'.xml', "html");
             $limit = count($articles);
