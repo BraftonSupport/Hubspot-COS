@@ -8,7 +8,6 @@
 $debug = isset($_GET['debug']) ? true : false;
 define('DEBUG', $debug);
 function dynamicAuthor($byLine_author){
-    $byLine_author = 'Robert Gaudreau';
     $byLine_author = urlencode($byLine_author);
     $url = "https://api.hubapi.com/blogs/v3/blog-authors/search/?fullName=$byLine_author&hapikey=".hub_apiKey;
     $authInfo = execute_get_request($url);

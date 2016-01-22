@@ -55,7 +55,6 @@ class HubspotImporter extends BraftonImporter{
         //subtracting 30 days *24 hrs *60 Minutes *60 Seconds *1000 Milliseconds
         $post_time -= 30*24*60*60*1000;
 
-
         $params = array(
             'hapikey'=>hub_apiKey,
             'content_group_id'=>blog_id,
@@ -68,8 +67,6 @@ class HubspotImporter extends BraftonImporter{
 
         $existing_topics = list_topics();
         echo 'Importing';
-        //import_articles($titles,$existing_topics);
-		//import_videos($titles,$existing_topics);
         $import = new HubspotImporter();
         $error = new BraftonErrorReport();
         if(brafton_apiKey != '' || brafton_apiKey != null){

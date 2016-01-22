@@ -8,8 +8,16 @@ class BraftonImporter {
  */
     function import_articles($titles,$existing_topics){
         echo ' Articles: <br/>';
-        $fh = new ApiHandler(brafton_apiKey, domain );
-        $articles = $fh->getNewsHTML();
+        $limit = isset($_GET['limit']) ? $_GET['limit'] : 5;
+        if(isset($_GET['archive_import']) && file_exists('archive-'.client.'.xml')){
+            $articles = NewsItem::getNewsHTML('archive-'.client.'.xml', "html");
+            $limit = count($articles);
+            echo 'From Archive File Import ' . $limit . ' articles<br/>';
+        }else{
+            $fh = new ApiHandler(brafton_apiKey, domain );
+            $articles = $fh->getNewsHTML();
+            echo 'From API Feed<br/>';
+        }
         $articles_imported = 0;
 
         foreach ($articles as $a) {
@@ -21,7 +29,7 @@ class BraftonImporter {
             echo "Checking: ".$post_title."<br/>";
             // check against existing posts here.  Use title.
             if (compare_post_titles($post_title,$titles)) continue;
-            if($articles_imported>5) break;
+            if($articles_imported>$limit) break;
             echo "POSTING: ".$post_title."<br>";
 
             $post_date = $a->getPublishDate();
