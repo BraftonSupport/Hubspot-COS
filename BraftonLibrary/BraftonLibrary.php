@@ -222,7 +222,7 @@ function create_topic($topic,$existing_topics){
 
     $params = array(
         'name' => $topic,
-        'slug' => strtolower(str_replace(' ','-',htmlspecialchars($topic))),
+        'slug' => strtolower(str_replace('--','-',str_replace(' ','-',strip_tags($topic)))),
     );
     if(DEBUG){
         $check_params = $params;
