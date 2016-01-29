@@ -221,7 +221,7 @@ function create_topic($topic,$existing_topics){
     $url = 'https://api.hubapi.com/blogs/v3/topics?hapikey=' . hub_apiKey . '&casing=snake_case';
     $params = array(
         'name' => $topic,
-         'slug'  => strtolower(preg_replace('/[^A-Za-z0-9\-]/','',str_replace(' ','-',$topic))),
+         'slug'  => str_replace('--','-',strtolower(preg_replace('/[^A-Za-z0-9\-]/','',str_replace(' ','-',$topic)))),
     );
     if(DEBUG){
         $check_params = $params;
