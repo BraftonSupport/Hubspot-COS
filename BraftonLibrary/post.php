@@ -103,7 +103,7 @@ class brafton_post{
 
     }
 
-    public function publish_post($article_id,$publish_date = false){
+    public function publish_post($article_id,$castleford = false, $publish_date = false){
 
         $url =  "https://api.hubapi.com/content/api/v2/blog-posts/$article_id/publish-action?portalId=" . portal  . "&hapikey=" . hub_apiKey;
         
@@ -116,9 +116,11 @@ class brafton_post{
         $body = json_encode($json_body);
 
         $a = execute_post_request($url, $body,true);
-        $date = $publish_date ? $this->date - 86400 : $this->date;
+        
+        $date = $castleford ? $this->date - 86400 : $this->date;
+        
         $updated_article = array(
-            "publish_date"=> $date
+            "publish_date"=> $publish_date ? $publish_date: $date
         );
         
         $response = $this->update_post($this->article_id,$updated_article);
