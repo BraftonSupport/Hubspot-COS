@@ -116,13 +116,13 @@ class brafton_post{
         $body = json_encode($json_body);
 
         $a = execute_post_request($url, $body,true);
-
+        $date = $publish_date ? $this->date - 86400 : $this->date;
         $updated_article = array(
-            "publish_date"=> $this->date
+            "publish_date"=> $date
         );
         
         $response = $this->update_post($this->article_id,$updated_article);
-        if(debug){
+        if(DEBUG){
             echo '<pre>';
             var_dump($updated_article, $response);
             echo '</pre>';
