@@ -13,7 +13,7 @@ class brafton_post{
     private $author;
 
     public function __construct($title,$meta_desc,$slug,$body,$summary,$author,$topics = false,$video = false, $date = false,$ctas=false, $featured=false){
-        echo 'hello';
+
         //creates blog post in draft format, updates it with desired data
         //returns article id, so it can be published if desired
         //3 step process recommended by hubspot api docs
@@ -121,7 +121,12 @@ class brafton_post{
             "publish_date"=> $this->date
         );
         
-        $this->update_post($this->article_id,$updated_article);
+        $response = $this->update_post($this->article_id,$updated_article);
+        if(debug){
+            echo '<pre>';
+            var_dump($updated_article, $response);
+            echo '</pre>';
+        }
 
     }
 
