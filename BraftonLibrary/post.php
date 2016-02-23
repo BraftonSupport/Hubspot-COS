@@ -121,6 +121,7 @@ class brafton_post{
         
         $updated_article = array(
             "created"   => $date,
+            "updated"   => $date,
             "publish_date"=> $date,
             "is_draft"  => false
         );
