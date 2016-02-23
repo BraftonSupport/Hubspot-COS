@@ -119,16 +119,16 @@ class brafton_post{
         
         $date = $castleford ? $this->date - 86400000 : $this->date;
         
-        $updated_article = array(
+        /*$updated_article = array(
             "created"   => $date,
             "publish_date"=> $date,
-            "is_draft"  => false
+            "is_draft"  => false,
         );
-        
-        $response = $this->update_post($this->article_id,$updated_article);
+        */
+       // $response = $this->update_post($this->article_id,$updated_article);
         if(DEBUG){
             echo '<pre>';
-            var_dump($updated_article, $response);
+            var_dump($a);
             echo '</pre>';
         }
 
