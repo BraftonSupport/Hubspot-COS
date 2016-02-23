@@ -112,7 +112,6 @@ class brafton_post{
         
         $updated_article = array(
             "publish_date"=> $date,
-            "is_draft"  => false
             );
        $response = $this->update_post($article_id,$updated_article);
         
