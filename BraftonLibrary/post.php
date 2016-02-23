@@ -111,10 +111,10 @@ class brafton_post{
         $date = $castleford ? $this->date - 86400000 : $this->date;
         
         $updated_article = array(
-            "created"   => $date,
             "publish_date"=> $date,
+            "is_draft"  => false
             );
-       $response = $this->update_post($this->article_id,$updated_article);
+       $response = $this->update_post($article_id,$updated_article);
         
         $json_body = array(
             'action'=>'schedule-publish',
@@ -126,7 +126,7 @@ class brafton_post{
         
         if(DEBUG){
             echo '<pre>';
-            var_dump($a, $response, $url);
+            var_dump($a, $response);
             echo '</pre>';
         }
 

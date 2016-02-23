@@ -302,7 +302,7 @@ function execute_post_request($url, $body, $formenc=FALSE) {  //new
     $error = curl_error($ch);
     curl_close($ch); 
     if ($errno > 0) {
-        echo 'cURL error: ' . $error;
+        return 'cURL error: ' . $error;
     } else {
         return json_decode($output);
     }
