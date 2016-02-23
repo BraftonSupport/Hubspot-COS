@@ -117,11 +117,10 @@ class brafton_post{
 
         $a = execute_post_request($url, $body,true);
         
-        $date = $castleford ? $this->date - 864000 : $this->date;
+        $date = $castleford ? $this->date - 86400000 : $this->date;
         
         $updated_article = array(
             "created"   => $date,
-            "updated"   => $date,
             "publish_date"=> $date,
             "is_draft"  => false
         );
