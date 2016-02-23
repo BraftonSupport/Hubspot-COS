@@ -120,6 +120,7 @@ class brafton_post{
         $date = $castleford ? $this->date - 864000 : $this->date;
         
         $updated_article = array(
+            "created"   => $date,
             "publish_date"=> $date,
             "is_draft"  => false
         );
