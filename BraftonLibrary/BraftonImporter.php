@@ -95,8 +95,8 @@ class BraftonImporter {
                     }
 
                     $divcode = '<div style="width:300px;background-color: #F9F9F9; border-radius:10px; padding: 3px;font: 11px/1.4em Arial, sans-serif;margin: 0.5em 0.8em 0.5em 0.5em; float:right;">';
-                    $imgcode = '<img src="' . $post_image . '" style = "width:300px;vertical-align:middle; margin-bottom: 3px;"  alt="'.$post_image_caption.'" />'; 
-                    $excerptImage = '<img src="' . $post_image . '" style = "width:300px;height:auto;vertical-align:middle; margin-bottom: 3px;float:right"  alt="'.$post_image_caption.'" />'; 
+                    $imgcode = '<img src="' . $post_image . '" style = "width:300px;vertical-align:middle; margin-bottom: 3px;"  alt="'.$photos[0]->getCaption().'" />'; 
+                    $excerptImage = '<img src="' . $post_image . '" style = "width:300px;height:auto;vertical-align:middle; margin-bottom: 3px;float:right"  alt="'.$photos[0]->getCaption().'" />'; 
                     $div = $divcode . $imgcode . '<br/>' . $post_image_caption . '</div>';
                     $strPost = $strPost.$div.$post_content;
                     $post_summary =  $excerptImage . $post_excerpt; 
