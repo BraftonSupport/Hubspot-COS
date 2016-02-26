@@ -26,7 +26,7 @@ class brafton_post{
         $this->topics = $topics;
         $this->date = strtotime($date)*1000;
         $this->author = $author;
-        $this->featured_image = "";
+        $this->featured_image = $featured;
         
         if($featured){
             $this->featured_image = $featured;

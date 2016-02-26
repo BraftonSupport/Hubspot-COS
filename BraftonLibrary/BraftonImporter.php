@@ -111,12 +111,13 @@ class BraftonImporter {
             }
             
             echo '<br/>This is the author : '.$author.'<br/>';
-            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_summary,$author,$article_topics,false,$post_date);
+            $post = new brafton_post($post_title,$post_excerpt,$slug,$strPost,$post_summary,$author,$article_topics,false,$post_date, false, $post_image);
 
             $id = $post->article_id;
             $featuredImage = array(
                 'featured_image'    => $post_image
                 );
+            /*
             if(imgage_import){
                 $response = $post->update_post($id, $featuredImage);   
                 if(DEBUG){
@@ -125,6 +126,7 @@ class BraftonImporter {
                     echo '</pre>';
                 }
             }
+            */
             if(post_status == 'published'){
                 $post->publish_post($id);  
             }
