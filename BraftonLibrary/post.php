@@ -30,6 +30,7 @@ class brafton_post{
         
         if($featured){
             $this->featured_image = $featured;
+            $this->use_featured_image = true;
             
         }
 
