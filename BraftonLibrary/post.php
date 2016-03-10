@@ -27,6 +27,7 @@ class brafton_post{
         $this->date = strtotime($date)*1000;
         $this->author = $author;
         $this->featured_image = $featured;
+        $this->use_featured_image = false;
         
         if($featured){
             $this->featured_image = $featured;
@@ -58,7 +59,8 @@ class brafton_post{
             'publish_immediately'=>true,
             "post_summary"=> $this->summary,
             "featured_image" => $this->featured_image,
-            "preview_image_src" => $this->featured_image
+            "preview_image_src" => $this->featured_image,
+            "use_featured_image" => $this->use_featured_image
         );
 
         if($topics){
