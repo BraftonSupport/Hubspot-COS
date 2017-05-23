@@ -1,0 +1,19 @@
+{
+    "name": "Hubspot COS Importer",
+    "account": "braftonsupport",
+    "repo": "Hubspot-COS",
+    "global": {
+        "targetroot": "/var/www/html/tech/hubspot/cos/Hubspot-COS",
+        "owner": "apache",
+        "group": "www"
+    },
+    "deploy": [
+        {
+            "tag": "live",
+            "branch": "master",
+            "afterinstall": "scripts/after.sh",
+            "source": "dist",
+            "target": "${GLOBAL_TARGETROOT}"
+        }
+    ]
+}
