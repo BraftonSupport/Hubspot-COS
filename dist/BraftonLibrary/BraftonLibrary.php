@@ -46,7 +46,7 @@ function upload_image($img){
     $cfile .= ';filename='.$filename.';type='.$filetype;
     */
     // for PHP > 5.4 
-    $cfile = curl_file_create($filename, $filetype, $filename);
+    $cfile = curl_file_create($filename, $contenttype, $filename);
     $json_body = array(
         'files' => $cfile,
         'folder_paths'  => image_folder
