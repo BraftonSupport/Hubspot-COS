@@ -33,6 +33,7 @@ function upload_image($img){
     $io = fopen($filename, 'wb');
     curl_setopt($ic, CURLOPT_FILE, $io);
     curl_setopt($ic, CURLOPT_HEADER, 0);
+    curl_setopt($ic, CURLOPT_SSL_VERIFYPEER, false);
     curl_exec($ic);
     curl_close($ic);
     fclose($io);
